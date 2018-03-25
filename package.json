@@ -18,6 +18,8 @@
     "react-hot-loader": "~3.0.0-beta.6",
     "sass-loader": "~4.0.2",
     "style-loader": "~0.13.1",
+    "three": "^0.91.0",
+    "three-orbitcontrols": "^2.0.0",
     "webpack": "~1.13.3",
     "webpack-dev-server": "~1.16.2"
   },
@@ -37,8 +39,7 @@
   "author": "florian.heidemann",
   "license": "MIT",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/florian-heidemann/frontend-sandbox"
-  },
-  "homepage": "https://github.com/ashleygwilliams/my_package"
+    "type": "git",
+    "url": "https://github.com/florian-heidemann/frontend-sandbox"
+  }
 }

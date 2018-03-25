@@ -1,4 +1,5 @@
 import React from 'react';
+import Scene from './Scene';
 import style from '../../styles/App.scss';
 
 class App extends React.Component {
@@ -12,6 +13,7 @@ class App extends React.Component {
           <div>
             <h1>Project: {this.state.project}</h1>
             <input type="text" onChange={this.onChange.bind(this)} />
+            <Scene />
         </div>);
     }
 
