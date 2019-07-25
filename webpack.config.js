@@ -1,40 +1,70 @@
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-
-function getDevTool() {
-    if (process.env.NODE_ENV !== 'production') {
-        return 'source-map'; //enables source map
-    }
-    
-    return false; 
-}
+const path = require('path');
+const webpack = require('webpack');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-    entry: {
-        main: './src/scripts/main.js'
-    },
-    output: {
-        filename: './dist/scripts/[name].js'
-    },
-    devtool: getDevTool(),
-    module: {
-        loaders: [
-            {
-                test: /\.js$/,
-                exclude: /(node_modules|bower_components)/,
-                loader: 'babel',
-                query: {
-                    presets: ['react', 'es2015']
-                }
+  entry: './src/index.js',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js'
+  },
+  plugins: [
+    new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+      ignoreOrder: false
+    }),
+    new HtmlWebpackPlugin({
+      title: 'index template',
+      template: 'index.html'
+    }),
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.m?js$/,
+        exclude: '/node_modules/',
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      },
+      {
+        test: /\.scss$/,
+        exclude: '/node_modules/',
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {},
+          },
+          'css-loader',
+          'sass-loader'
+        ],
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              outputPath: 'images/',
+              name: '[name].[ext]'
             },
-            {
-                test: /\.scss$/,
-                loader: ExtractTextPlugin.extract('css!sass')
-            }
-        ]
-    },
-    plugins: [
-        new ExtractTextPlugin('dist/styles/main.css', {
-            allChunks: true
-        })
+          },
+        ],
+      },
     ]
+  },
+  resolve: {
+    alias: {
+      images: path.resolve(__dirname, 'src/images/'),
+    }
+  },
+  devServer: {
+    contentBase: path.join(__dirname, 'dist')
+  }
 };

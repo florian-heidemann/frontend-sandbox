@@ -1,45 +1,27 @@
 {
-  "name": "frontend-dev-sandbox",
-  "bin": {},
-  "version": "1.0.0",
-  "description": "Frontend Dev Sandbox - React, Babel, ES6, Sass, Webpack",
-  "main": "main.js",
-  "dependencies": {},
-  "devDependencies": {
-    "babel-core": "~6.18.2",
-    "babel-loader": "~6.2.8",
-    "babel-preset-latest": "~6.16.0",
-    "babel-preset-react": "~6.16.0",
-    "css-loader": "~0.26.0",
-    "extract-text-webpack-plugin": "~1.0.1",
-    "node-sass": "~3.13.0",
-    "react": "~15.4.1",
-    "react-dom": "~15.4.1",
-    "react-hot-loader": "~3.0.0-beta.6",
-    "sass-loader": "~4.0.2",
-    "style-loader": "~0.13.1",
-    "three": "^0.91.0",
-    "three-orbitcontrols": "^2.0.0",
-    "webpack": "~1.13.3",
-    "webpack-dev-server": "~1.16.2"
-  },
+  "name": "frontend-sandbox",
+  "version": "1.0.1",
   "scripts": {
-    "build": "webpack -p",
-    "start": "webpack-dev-server --hot --progress --colors --inline",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "webpack-dev-server --open --mode development",
+    "build": "webpack -p"
   },
-  "keywords": [
-    "react",
-    "babel",
-    "es2015",
-    "webpack",
-    "sass",
-    "es6"
-  ],
-  "author": "florian.heidemann",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/florian-heidemann/frontend-sandbox"
-  }
+  "devDependencies": {
+    "@babel/cli": "^7.1.5",
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
+    "babel-loader": "^8.0.4",
+    "breakpoint-sass": "^2.7.1",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^0.28.11",
+    "file-loader": "^4.1.0",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "node-sass": "^4.8.3",
+    "sass-loader": "^6.0.7",
+    "style-loader": "^0.20.3",
+    "webpack": "^4.5.0",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.4"
+  },
+  "dependencies": {}
 }

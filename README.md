@@ -1,2 +1,2 @@
 # frontend-sandbox
-Dev environment - React, Babel, ES6, Sass, Webpack
+Dev environment - Babel, ES6, Sass, Webpack
